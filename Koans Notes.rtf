@@ -1,0 +1,224 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Menlo-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red191\green100\blue38;\red32\green32\blue32;\red254\green187\blue91;
+\red153\green168\blue186;\red98\green146\blue188;\red109\green109\blue109;\red0\green0\blue0;\red0\green0\blue0;
+\red201\green162\blue24;\red119\green150\blue159;\red254\green255\blue247;\red88\green118\blue71;\red133\green143\blue72;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c74902\c39216\c14902;\csgenericrgb\c12549\c12549\c12549;\csgenericrgb\c99608\c73333\c35686;
+\csgenericrgb\c60000\c65882\c72941;\csgenericrgb\c38431\c57255\c73725;\csgenericrgb\c42745\c42745\c42745;\csgray\c0\c0;\cssrgb\c0\c0\c0;
+\csgenericrgb\c78824\c63529\c9412;\csgenericrgb\c46667\c58824\c62353;\csgenericrgb\c99608\c100000\c96863;\csgenericrgb\c34510\c46275\c27843;\csgenericrgb\c52157\c56078\c28235;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 MadeTech\
+Ruby Koans\
+\
+about_objects.rb\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf2 \cb3 def \cf4 test_small_integers_have_fixed_ids\
+  \cf5 assert_equal \cf6 1\cf2 , \cf6 0\cf5 .object_id\
+  assert_equal \cf6 3\cf2 , \cf6 1\cf5 .object_id\
+  assert_equal \cf6 5\cf2 , \cf6 2\cf5 .object_id\
+  assert_equal \cf6 201\cf2 , \cf6 100\cf5 .object_id\
+\
+  
+\f2\i \cf7 # THINK ABOUT IT:\
+  # What pattern do the object IDs for small integers follow?\
+\
+\cb8 \
+x*2+1 \'97 weeeeird. What about all IDs in-between? Like 2, 4 etc. \
+\
+\cf9 about_arrays.rb\cf7 \
+\
+
+\f1\i0 \cf2 \cb3 def \cf4 test_shifting_arrays\
+  
+\f2\i \cf10 \cb3 array 
+\f1\i0 \cf5 \cb3 = [\cf6 1\cf2 ,\cf6 2\cf5 ]\
+  
+\f2\i \cf10 \cb3 array
+\f1\i0 \cf5 \cb3 .unshift(\cf11 \cb3 :first\cf5 \cb3 )\
+
+\f2\i \cf10 \cb3 \
+  shifted_value 
+\f1\i0 \cf5 \cb3 = 
+\f2\i \cf10 \cb3 array
+\f1\i0 \cf5 \cb3 .shift\
+  assert_equal \cf11 \cb3 :first\cf2 \cb3 , 
+\f2\i \cf10 \cb3 shifted_value\
+\
+\cf9 \cb8 Shift returns the first element form the array and removes it from the array too.\
+\
+about_hashes.rb\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf7 \cb3 # THINK ABOUT IT:\
+#\
+# Why might you want to use #fetch instead of #[] when accessing hash keys?\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \cb8 \
+Fetch will raise exception instead of returning nil if hash doesn\'92t exist\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\i0 \cf2 \cb3 def \cf4 test_accessing_hashes_with_fetch\
+\cf2 \
+  
+\f2\i \cf7 # THINK ABOUT IT:\
+  #\
+  # Why might you want to use #fetch instead of #[] when accessing hash keys?\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \cb8 \
+\
+To avoid using brackets in the assert statement\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+
+\f1\i0 \cf2 \cb3 def \cf4 test_default_value_is_the_same_object\
+  
+\f2\i \cf10 \cb3 hash 
+\f1\i0 \cf5 \cb3 = \cf12 \cb3 Hash\cf5 \cb3 .new([])\
+\
+  
+\f2\i \cf10 \cb3 hash
+\f1\i0 \cf5 \cb3 [\cf11 \cb3 :one\cf5 \cb3 ] << \cf13 \cb3 "uno"\
+  
+\f2\i \cf10 \cb3 hash
+\f1\i0 \cf5 \cb3 [\cf11 \cb3 :two\cf5 \cb3 ] << \cf13 \cb3 "dos"\
+\cf9 \cb8 << adds onto the array\
+\
+\cf2 \cb3 def \cf4 test_default_value_with_block\
+  
+\f2\i \cf10 \cb3 hash 
+\f1\i0 \cf5 \cb3 = \cf12 \cb3 Hash\cf5 \cb3 .new \{|
+\f2\i \cf10 \cb3 hash
+\f1\i0 \cf2 \cb3 , 
+\f2\i \cf10 \cb3 key
+\f1\i0 \cf5 \cb3 | 
+\f2\i \cf10 \cb3 hash
+\f1\i0 \cf5 \cb3 [
+\f2\i \cf10 \cb3 key
+\f1\i0 \cf5 \cb3 ] = [] \}\
+\cf9 \cb8 Defines the structure?\
+\
+\
+about_strings.rb\
+
+\f2\i \cf7 \cb3 # THINK ABOUT IT:\
+#\
+# Ruby programmers tend to favor the shovel operator (<<) over the\
+# plus equals operator (+=) when building up strings.  Why?\
+\cf9 \cb8 \
+It changes all copies of the string when modified\
+\
+
+\f1\i0 \cf2 \cb3 def \cf4 test_any_ruby_expression_may_be_interpolated\
+  
+\f2\i \cf10 \cb3 string 
+\f1\i0 \cf5 \cb3 = \cf13 \cb3 "The square root of 5 is \cf5 \cb3 #\{\cf12 \cb3 Math\cf5 \cb3 .sqrt(\cf6 5\cf5 )\}\cf13 \cb3 "\
+  \cf5 \cb3 assert_equal \cf13 \cb3 "The square root of 5 is 2.23606797749979"\cf2 \cb3 , 
+\f2\i \cf10 \cb3 string\
+
+\f1\i0 \cf2 \cb3 end\cf9 \cb8 \
+Is that the only way to do it? Seems un-neat.\
+\
+\cf2 \cb3 def \cf4 test_you_can_get_a_substring_from_a_string\
+  
+\f2\i \cf10 \cb3 string 
+\f1\i0 \cf5 \cb3 = \cf13 \cb3 "Bacon, lettuce and tomato"\
+  \cf5 \cb3 assert_equal \cf13 \cb3 "let"\cf2 \cb3 , 
+\f2\i \cf10 \cb3 string
+\f1\i0 \cf5 \cb3 [\cf6 7\cf2 ,\cf6 3\cf5 ]  \'97-this one starts at 7 and takes 3 char \
+  assert_equal \cf13 \cb3 "let"\cf2 \cb3 , 
+\f2\i \cf10 \cb3 string
+\f1\i0 \cf5 \cb3 [\cf6 7\cf5 ..\cf6 9\cf5 ] \'97-this one starts at 7 ends at 9\
+\cf9 \cb8 \
+\
+about_symbols.rb\
+\cf2 \cb3 def \cf4 test_method_names_become_symbols\
+  
+\f2\i \cf10 \cb3 symbols_as_strings 
+\f1\i0 \cf5 \cb3 = \cf12 \cb3 Symbol\cf5 \cb3 .all_symbols.map \{ |
+\f2\i \cf10 \cb3 x
+\f1\i0 \cf5 \cb3 | 
+\f2\i \cf10 \cb3 x
+\f1\i0 \cf5 \cb3 .to_s \}\
+  assert_equal \cf2 true, 
+\f2\i \cf10 \cb3 symbols_as_strings
+\f1\i0 \cf5 \cb3 .include?(\cf13 \cb3 "test_method_names_become_symbols"\cf5 \cb3 )\
+\cf2 end\
+\
+
+\f2\i \cf7 # THINK ABOUT IT:\
+#\
+# Why do we convert the list of symbols to strings and then compare\
+# against the string value rather than against symbols?\
+\cf9 \cb8 Readability?\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\i0 \cf5 \cb3 in_ruby_version(\cf13 \cb3 "mri"\cf5 \cb3 ) \cf2 do\
+  
+\f2\i \cf4 \cb3 RubyConstant 
+\f1\i0 \cf5 \cb3 = \cf13 \cb3 "What is the sound of one hand clapping?"\
+  \cf2 \cb3 def \cf4 test_constants_become_symbols\
+    
+\f2\i \cf10 \cb3 all_symbols_as_strings 
+\f1\i0 \cf5 \cb3 = \cf12 \cb3 Symbol\cf5 \cb3 .all_symbols.map \{ |
+\f2\i \cf10 \cb3 x
+\f1\i0 \cf5 \cb3 | 
+\f2\i \cf10 \cb3 x
+\f1\i0 \cf5 \cb3 .to_s \}\
+\
+    assert_equal \cf2 true, 
+\f2\i \cf10 \cb3 all_symbols_as_strings
+\f1\i0 \cf5 \cb3 .include?(\cf13 \cb3 "RubyConstant"\cf5 \cb3 )  
+\f2\i \cf7 # why does this work?????\
+  
+\f1\i0 \cf2 end\
+end\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\i \cf9 \cb8 \
+about_regular_expressions.rb\
+
+\f1\i0 \cf2 \cb3 def \cf4 test_slash_w_is_a_shortcut_for_a_word_character_class\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf4   
+\f2\i \cf7 # NOTE:  This is more like how a programmer might define a word.\
+  
+\f1\i0 \cf5 assert_equal \cf13 \cb3 "variable_1"\cf2 \cb3 , \cf13 \cb3 "variable_1 = 42"\cf5 \cb3 [\cf14 \cb3 /\cf5 \cb3 [a-zA-Z0-9_]+\cf14 \cb3 /\cf5 \cb3 ]\
+  assert_equal \cf13 \cb3 "variable_1"\cf2 \cb3 , \cf13 \cb3 "variable_1 = 42"\cf5 \cb3 [\cf14 \cb3 /\cf5 \cb3 \\w+\cf14 \cb3 /\cf5 \cb3 ]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\i \cf9 \cb8 \
+Why is underscore included. I clearly lack basic knowledge lol.\
+\
+about_modules.rb\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\i0 \cf2 \cb3 def \cf4 test_classes_can_override_module_methods\
+  
+\f2\i \cf10 \cb3 fido 
+\f1\i0 \cf5 \cb3 = \cf12 \cb3 Dog\cf5 \cb3 .new\
+  assert_equal \cf11 \cb3 :in_object\cf2 \cb3 , 
+\f2\i \cf10 \cb3 fido
+\f1\i0 \cf5 \cb3 .here\
+\cf2 end\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\i \cf9 \cb8 \
+Why is this like that? Is there a different answer?\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\
+My thoughts on Ruby\
+Sweet that it\'92s one of those that got rid of ; \
+Nice that there\'92s no need for a return statement in methods, although I imagine it could get quite confusing with loads of parameters\
+Nice that substitute for getters and setters is 1 line\
+A bit confused about defining var with @ and symbols and all\
+}
